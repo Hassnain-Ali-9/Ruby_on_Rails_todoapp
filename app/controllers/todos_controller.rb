@@ -33,6 +33,11 @@
       render 'edit' , status: 308
     end
   end
+
+  def index
+    @todos = Todo.all
+  end
+
   
 
   private
