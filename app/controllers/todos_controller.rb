@@ -38,6 +38,15 @@
     @todos = Todo.all
   end
 
+  def destroy
+    @todo = Todo.find(params[:id]) 
+    @todo.destroy
+    flash[:notice] = "Todo was deleted successfully"
+    redirect_to todos_path
+
+
+  end
+
   
 
   private
