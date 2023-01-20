@@ -10,7 +10,7 @@
      flash[:notice] = "Todo was created successfully"
      redirect_to todo_path(@todo)
       else 
-     render 'new', status: :unprocessable_entity
+     render 'new', status: 308
     end
   end
 
@@ -18,6 +18,22 @@
     @todo = Todo.find(params[:id])
 
   end
+
+  def edit
+    @todo = Todo.find(params[:id])
+
+  end
+
+  def update
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_params)
+     flash[:notice] = "Todo was successfully updated"
+     redirect_to todo_path(@todo)
+    else
+      render 'edit' , status: 308
+    end
+  end
+  
 
   private
 
